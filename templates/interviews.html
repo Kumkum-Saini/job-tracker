@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}My Interviews{% endblock %}
+
+{% block content %}
+
+<h1>My Interviews</h1>
+
+{% if interviews %}
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Company</th>
+        <th>Job Title</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Mode</th>
+        <th>Notes</th>
+    </tr>
+
+    {% for interview in interviews %}
+    <tr>
+        <td>{{ interview.job.company }}</td>
+        <td>{{ interview.job.job_title }}</td>
+        <td>{{ interview.interview_date }}</td>
+        <td>{{ interview.interview_type }}</td>
+        <td>{{ interview.mode }}</td>
+        <td>{{ interview.notes }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% else %}
+
+<p>No interviews added yet.</p>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{%block title%}
+Jobs {%endblock%}
+
+{%block content%}
+        <h1>Job Applications</h1>
+
+        
+        <br>
+
+        <table border="1" cellpadding = "10" >
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Job Title</th>
+                    <th>Location</th>
+                    <th>Salary</th>
+                    <th>Application Date</th>
+                    <th>Status</th></th>
+                    <th>Actions</th>
+                </tr>
+
+            </thead>
+             {%for job in jobs %}
+            <tbody>
+                    <tr>
+                        <td>{{job.company}}</td>
+                        <td>{{job.job_title}}</td>
+                        <td>{{job.location}}</td>
+                        <td>{{job.salary}}</td>
+                        <td>{{job.application_date}}</td>
+                        <td>{{job.status}}</td>
+
+                        <td>
+                            <a href="/edit-job/{{job.id}}">Edit</a>
+                            |
+                            <a href="/delete-job/{{job.id}}">Delete</a>
+                            |
+                            <a href="/add-interview/{{job.id}}">Add Interview</a>
+                        </td>
+                    </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+        <br><br>
+        <a href="/add-job" style="text-decoration: none; padding: 10px;">Add New Job</a>
+        <a href="/logout" style="text-decoration: none; padding: 10px;">Logout</a>
+    
+{% endblock %}

@@ -1,0 +1,45 @@
+{%extends "base.html" %}
+
+{%block title%} Add Job {%endblock%}
+
+{%block content%}
+
+        <h1>Add job Application</h1>
+
+        <form method="POST">
+            <label>Company:</label>
+            <input type="text" name="company" required>
+
+            <label>Job Title</label>
+            <input type="text" name="job_title" required>
+            
+            <label>Location:</label>
+        <input type="text" name="location">
+        <br><br>
+
+        <label>Salary:</label>
+        <input type="text" name="salary">
+        <br><br>
+
+        <label>Application Date:</label>
+        <input type="date" name="application_date">
+        <br><br>
+
+        <label>Status:</label>
+        <select name="status">
+            <option value="Applied">Applied</option>
+            <option value="Assessment">Assessment</option>
+            <option value="Interview">Interview</option>
+            <option value="Selected">Selected</option>
+            <option value="Rejected">Rejected</option>
+
+        </select>
+
+        <label>Job URL:</label>
+        <input type="text" name="job_url">
+        <br><br>
+
+        <button type="submit">AddJob</button>
+
+        </form>
+    {%endblock%}

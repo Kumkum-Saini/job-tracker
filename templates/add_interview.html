@@ -1,0 +1,47 @@
+{%extends "base.html" %}
+
+{% block title %}
+Add Interview
+{%endblock%}
+
+{%block content %}
+
+<h1>Add Interview</h1>
+
+<h3>{{job.company}} - {{job.job_title}}</h3>
+
+<form method="POST">
+    <label>Interview Date</label>
+    <input type="date" name="interview_date" required>
+
+    <br><br>
+
+    <label>Interview Type</label>
+    <select name="interview_type">
+        <option value="Technical">Technical</option>
+        <option value="HR">HR</option>
+        <option value="Managerial">Managerial</option>
+    </select>
+
+    <br><br>
+
+    <label>Mode</label>
+    <select name="mode">
+        <option value="Online">Online</option>
+        <option value="Offline">Offline</option>
+
+    </select>
+
+    <br><br>
+
+    <label>Notes:</label>
+    <br>
+    <textarea name="notes" rows="5" cols="40"></textarea>
+
+    <br><br>
+
+    <button type="submit">Add Interview</button>
+
+
+</form>
+{%endblock%}

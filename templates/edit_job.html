@@ -1,0 +1,41 @@
+{%extends "base.html" %}
+
+{%block title%} Edit Job{% endblock %}
+
+{% block content %}
+        <h1>Edit Job Application</h1>
+
+        <form method="POST">
+            <label>Company:</label>
+
+            <input type="text" name="company" value="{{job.company}}" required>
+
+            <label>Job Title</label>
+            <input type="text" name="job_title" value="{{job.job_title}}" required>
+            
+            <label>Location:</label>
+        <input type="text" name="location" value="{{job.location}}">
+        <br><br>
+
+        <label>Salary:</label>
+        <input type="text" name="salary" value="{{job.salary}}">
+        <br><br>
+
+        <br><br>
+
+        <label>Status:</label>
+        <select name="status">
+            <option value="Applied" {% if job.status == "Applied" %} selected {% endif%}>Applied</option>
+            <option value="Assessment" {% if job.status == "Assessment"%} selected {% endif%}>Assessment</option>
+            <option value="Interview" {% if job.status == "Interview"%} selected {% endif%}>Interview</option>
+            <option value="Selected" {% if job.status == " Selected"%} selected {% endif%}>Selected</option>
+            <option value="Rejected" {% if job.status == "Rejected"%} selected {% endif%}>Rejected</option>
+
+        </select>
+
+
+        <button type="submit">Update Job</button>
+        </form>
+
+        
+    {% endblock%}

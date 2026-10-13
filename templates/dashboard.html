@@ -1,0 +1,47 @@
+       {% extends "base.html" %}
+
+       {%block title%} Dashboard {%endblock%}
+       
+       {%block content %}
+         <h1>Job Tracker Dashboard</h1>
+
+        <h2>Welcome, {{current_user.name}}</h2>
+
+        
+        <div class="cards">
+             
+
+            <div class="card"> 
+                    <h3>Total Job Applications: </h3>
+                   <p>{{total_jobs}}</p>
+            </div>
+        
+           
+
+        <div class="card">
+            <h3>Applied: </h3>
+            <p>{{applied_jobs}}</p></div>
+
+        <div class="card">
+             <h3>Interviews: </h3>
+        <p>{{interview_jobs}}</p>
+
+        </div>
+        
+        <div class="card">
+            <h3>Selected: </h3>
+        <p>{{selected_jobs}}</p>
+        </div>
+
+        <div class="card">
+            <h3>Rejected: </h3>
+        <p>{{rejected_jobs}}</p>
+        </div>
+
+        
+        </div>
+
+    </div>
+        
+     {%endblock%}   
+        
