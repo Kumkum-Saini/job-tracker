@@ -86,7 +86,7 @@ with app.app_context():
 
 @app.route("/")
 def home():
-    return "Job tracker is running"
+    return redirect(url_for("login"))
 
 @app.route("/add-job", methods=["GET", "POST"])
 @login_required
@@ -202,7 +202,7 @@ def login():
 
         if user and check_password_hash(user.password, password):
             login_user(user)
-            return "Loign successfully!"
+            return redirect(url_for("dashboard"))
 
         return "invalid email or password!"
     return render_template("login.html")
