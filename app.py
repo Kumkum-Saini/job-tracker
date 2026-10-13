@@ -13,8 +13,19 @@ app = Flask(__name__)
 
 app.secret_key = os.getenv("SECRET_KEY")
 
-app.config["SQLALCHEMY_DATABASE_URI"] = (f"mysql+mysqlconnector://{os.getenv('DB_USER')}:"
-f"{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}/"f"{os.getenv('DB_NAME')}")
+print("DEMO_MODE =", repr(os.getenv("DEMO_MODE")))
+
+if os.getenv("DEMO_MODE", "false").lower() == "true":
+    app.config["SQLALCHEMY_DATABASE_URI"] = (
+        "sqlite:////tmp/job_tracker_demo.db"
+    )
+else:
+    app.config["SQLALCHEMY_DATABASE_URI"] = (
+        f"mysql+mysqlconnector://{os.getenv('DB_USER')}:"
+        f"{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}/"
+        f"{os.getenv('DB_NAME')}"
+    )
+
 
 db = SQLAlchemy(app)
 
