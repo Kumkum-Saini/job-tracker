@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_login import LoginManager, login_user, logout_user, login_required, UserMixin, current_user
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 import os
 from dotenv import load_dotenv
 
@@ -98,7 +99,13 @@ def add_job():
         job_title = request.form["job_title"]
         location = request.form["location"]
         salary = request.form["salary"]
-        application_date = request.form["application_date"]
+        # application_date = request.form["application_date"]
+        date_input = request.form.get("application_date")
+        application_date = (
+            datetime.strptime(date_input, "%Y-%m-%d").date()
+            if date_input
+            else None
+        )
         status = request.form["status"]
         job_url = request.form["job_url"]
 
